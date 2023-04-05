@@ -1,2 +1,17 @@
-<p>users works!</p>
-<app-users></app-users>
+<p>Mazin!</p>
+<app-user></app-user>
+<app-user></app-user>
+<app-user></app-user>
+
+<label for="">User Name</label>
+<input type="text" (input)="onUpdateUser($event)" />
+<div>{{ userName }}</div>
+
+<button
+  class="btn btn primary"
+  [disabled]="!allowNewUser"
+  (click)="changeUserCreatedStatus()"
+>
+  Add User
+</button>
+<div>{{ userCreatedStatus }}</div>
