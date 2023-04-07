@@ -1,10 +1,11 @@
 <p>Mazin!</p>
-<app-user></app-user>
-<app-user></app-user>
-<app-user></app-user>
+<app-user *ngFor="let user of users"></app-user>
+<!-- <app-user></app-user>
+<app-user></app-user> -->
 
 <label for="">User Name</label>
-<input type="text" (input)="onUpdateUser($event)" />
+<!-- <input type="text" (input)="onUpdateUser($event)" /> -->
+<input type="text" [(ngModel)]="userName" />
 <div>{{ userName }}</div>
 
 <button
@@ -14,4 +15,10 @@
 >
   Add User
 </button>
-<div>{{ userCreatedStatus }}</div>
+<div *ngIf="isUserCreated; else noUser">
+  User is created and the username is{{ userName }}
+</div>
+
+<ng-template #noUser>
+  <div>No user is created</div>
+</ng-template>

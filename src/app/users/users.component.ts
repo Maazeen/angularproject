@@ -9,8 +9,11 @@ import { Component } from '@angular/core';
 })
 export class UsersComponent {
   allowNewUser = false;
-  userCreatedStatus = 'No user is created';
-  userName = '';
+  // userCreatedStatus = 'No user is created';
+  userName = 'Mazin';
+  isUserCreated = false;
+  users = ['user1', 'user2'];
+
   constructor() {
     setTimeout(() => {
       this.allowNewUser = true;
@@ -18,11 +21,12 @@ export class UsersComponent {
   }
 
   changeUserCreatedStatus() {
-    this.userCreatedStatus = 'User iscreated';
+    this.isUserCreated = true;
+    // this.userCreatedStatus = 'User iscreated';
+    this.users.push(this.userName);
   }
   onUpdateUser(event: Event) {
     // console.log(event);
-    this.userName=(event.target as HTMLInputElement).value;
-
+    this.userName = (event.target as HTMLInputElement).value;
   }
 }
