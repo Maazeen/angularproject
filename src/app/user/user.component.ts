@@ -7,9 +7,18 @@ import { Component } from '@angular/core';
 })
 export class UserComponent {
   userName: string = 'mazin';
-  userStatus: string = 'Online;';
+  userStatus: string;
 
+  constructor() {
+    this.userStatus = Math.random() > 0.5 ? 'online' : 'offline';
+  }
   getUserStatus() {
     return this.userStatus;
+  }
+  getColor() {
+    if (this.userStatus === 'online') {
+      return 'blue';
+    }
+    return 'red';
   }
 }
